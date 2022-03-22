@@ -1,0 +1,100 @@
+@use "base";
+@use "./abstracts/functions" as *;
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+[data-tooltip] {
+  background-color: orange;
+  --tooltip-bg-color: blue;
+  --tooltip-text-color: hotpink;
+  --radius: #{rem(3)};
+  --arrow-size: #{rem(12)};
+  --arrow-inset-x: #{rem(10)};
+  --arrow-position: 0.5;
+  --grow: 0;
+  --font-size: #{rem(15)};
+  --padding: #{rem(5)};
+  --offset: #{rem(5)};
+  position: relative;
+  &::before,
+  &::after {
+    pointer-events: none;
+    width: max-content;
+    height: auto;
+    background-color: var(--tooltip-bg-color);
+    position: absolute;
+    top: calc(
+      (
+          var(--font-size) + var(--arrow-size) + (var(--padding) * 2) +
+            var(--offset)
+        ) * -1
+    );
+    left: 37%;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  &::before {
+    content: "";
+    height: var(--arrow-size);
+    width: calc(var(--arrow-size) * 2);
+    background-color: var(--tooltip-bg-color);
+    clip-path: polygon(0 0, 50% 100%, 100% 0);
+    transform: translate(
+        var(--arrow-inset-x),
+        calc((var(--font-size) + (var(--padding) * 2) * var(--arrow-position)))
+      )
+      scale(var(--grow));
+    transform-origin: top center;
+  }
+  &::after {
+    content: attr(data-tooltip);
+    width: max-content;
+    color: var(--tooltip-text-color);
+    transform: scale(var(--grow));
+    transition: transform 200ms ease;
+    transform-origin: bottom center;
+    border-radius: var(--radius);
+    font-size: var(--font-size);
+    font-weight: normal;
+    line-height: 1;
+    padding: var(--padding);
+    transition: transform 200ms ease;
+  }
+  &.bottom {
+    &::before,
+    &::after {
+      top: auto;
+      bottom: calc(
+        (
+            var(--font-size) + var(--arrow-size) + (var(--padding) * 2) +
+              var(--offset)
+          ) * -1
+      );
+    }
+    &::before {
+      transform: translate(
+          var(--arrow-inset-x),
+          calc((var(--arrow-size) * -1) * var(--arrow-position))
+        )
+        rotate(180deg) scale(var(--grow));
+      transform-origin: top center;
+    }
+  }
+  &:hover {
+    --grow: 1;
+    --arrow-position: 0.88;
+    &::before {
+      transition: transform 20ms ease 100ms;
+    }
+  }
+}
+.box {
+  width: rem(200);
+  height: rem(200);
+}
