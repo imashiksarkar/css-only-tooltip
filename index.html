@@ -6,9 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Raw-HTML</title>
     <link rel="stylesheet" href="src/css/style.css" />
+    <script defer src="src/js/script.js"></script>
   </head>
   <body>
-    <!-- <div class="box bottom" data-tooltip="Hi! I'm Tooltip. How are you?"></div> -->
-    <!-- <h1 class="h1  bottom" data-tooltip="Hi! I'm Tooltip.">hi how are you</h1> -->
+    <section class="full-wrapper">
+      <h1 class="welcome" data-tooltip="Top Center">welcome</h1>
+      <br />
+      <p class="para bottom right" data-tooltip="Bottom Right">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus
+        beatae expedita repellendus labore nam libero incidunt voluptas ut quia
+        voluptate!
+      </p>
+      <br />
+      <br />
+      <div class="toggle-box">
+        <button
+          class="icon-button right"
+          data-tooltip="
+      Dark/Light Toggle Button"
+        >
+          <svg class="icon-sun-moon" viewBox="0 0 30 30">
+            <circle class="circle" cx="15" cy="15" r="6.5" />
+            <path
+              class="star"
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M19.0182 5.29926L15 0L10.9818 5.29926L4.3934 4.3934L5.29926 10.9818L0 15L5.29926 19.0182L4.3934 25.6066L10.9818 24.7007L15 30L19.0182 24.7007L25.6066 25.6066L24.7007 19.0182L30 15L24.7007 10.9818L25.6066 4.3934L19.0182 5.29926ZM15 23.5714C19.7339 23.5714 23.5714 19.7339 23.5714 15C23.5714 10.2661 19.7339 6.42857 15 6.42857C10.2661 6.42857 6.42858 10.2661 6.42858 15C6.42858 19.7339 10.2661 23.5714 15 23.5714Z"
+            />
+          </svg>
+        </button>
+      </div>
+      <br />
+      <br />
+      <p class="para">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error, ullam.
+        Nesciunt fugit dolores voluptates
+        <a href="#" class="left" data-tooltip="Top Left"> Click Here </a>
+        ullam ipsa sapiente nulla aperiam, consequatur ratione eligendi itaque
+        tempora, ad fuga! Distinctio adipisci quas quia.
+      </p>
+    </section>
   </body>
 </html>

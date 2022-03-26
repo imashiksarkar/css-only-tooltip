@@ -1,3 +1,25 @@
 @use "base";
 @use "./abstracts/functions" as *;
 @use "./components/tooltip";
+@use "./components/google-toggle";
+body{
+    display: flex;
+    justify-content: center;
+}
+.full-wrapper {
+  height: 100vh;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.toggle-box {
+  width: 200px;
+  height: 200px;
+  box-shadow: 5px 5px 10px black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
